@@ -1,0 +1,89 @@
+:root {
+  /* colors */
+  --da-primary-color: #2A628F;
+  --da-secondary-color: #3E92CC;
+  --da-highlight-color: #fb8500;
+  --da-dark-color: #16324F;
+  --da-light-color: #256c9e;
+  --da-plain-color: #FDFFFC;
+  --da-background-color: var(--da-plain-color);
+
+  /* nav bar colors */
+  --da-nav-bg-color: var(--da-dark-color);
+  --da-nav-toggler-color: var(--da-highlight-color);
+  --da-nav-toggler-glow: rgba(250, 225, 120, 0.55);
+
+  /* form colors */
+  --da-formfocus-border-color: var(--da-secondary-color);
+  --da-formfocus-shadow: var(--da-primary-color);
+  --da-form-background-color: var(--da-dark-color);
+
+  /* text styles */
+  --da-title-color: var(--da-dark-color);
+  --da-font-size: 1.2rem;
+  --da-font-weight: 400;
+  --da-line-height: 1.5rem;
+}
+
+/* Sticky Footer */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+
+  color: var(--da-dark-color);
+  background: var(--da-background-color);
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+/* Sticky Footer End */
+
+#mainNav{
+    background: var(--da-dark-color);
+}
+
+footer{
+    background: var(--da-dark-color);
+    color: var(--da-plain-color);
+    font-size: 1.3rem;
+}
+
+footer .bi{
+    color: var(--da-secondary-color);
+    font-size: 2rem;
+    padding-left: 1rem;
+    transition: color 0.25s;
+}
+
+footer .bi:hover{
+    color: var(--da-highlight-color);
+}
+
+.checklist{
+    list-style-type: none;
+}
+
+.checklist>li i{
+    color: var(--da-highlight-color);
+}
+
+.devIcons{
+    font-size: 3.5rem;
+    padding-left: 1rem;
+}
+
+.appLogo{
+    max-width: 400px;
+}
