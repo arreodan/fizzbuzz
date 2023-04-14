@@ -82,9 +82,34 @@
     </header>
 
     <main class="container mt-3">
-      <h1>App UI Goes Here</h1>
-      <input type="text" placeholder="Enter a Message" id="message"/>
-      <button class="btn btn-primary" id="btnSubmit">Display Message</button>
+      <div class="container">
+        <div class="row row-cols-2 row-cols-lg-4 ">
+          <div class="col">
+            <form>
+              <label for="Fizz Value" class="form-label">Fizz Value</label>
+              <input type="number" id="fizzValue" class="form-control" value="3">
+            </div>
+            <div class="col">
+              <label for="Buzz Value" class="form-label">Buzz Value</label>
+              <input type="number" id="buzzValue" class="form-control" value="5">
+            </div>
+            <div class="col">
+              <label for="Stop Value" class="form-label mt">Stop Value (max: 5000)</label>
+              <input type="number" id="stopValue" class="form-control" value="25">
+            </div>
+          </form>
+            <div class="col">
+            <button class="w-100 btn btn-primary mt4" onclick="getValues()">Go</button>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive pt-3">
+        <table class="table table-striped">
+          <tbody id="results">
+
+          </tbody>
+        </table>
+      </div>
     </main>
 
     <footer class="py-3">

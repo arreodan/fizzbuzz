@@ -87,3 +87,26 @@ footer .bi:hover{
 .appLogo{
     max-width: 400px;
 }
+
+.fizzBuzz{
+  background: var(--da-highlight-color)!important;
+  font-weight: bolder;
+}
+
+.bolder{
+  font-weight: bolder;
+}
+.mt{
+  padding-top: .5rem;
+}
+.mt4{
+  margin-top: 2.5rem;
+}
+@media (min-width: 768px) {
+.mt{
+  padding-top: 0rem;
+}
+.mt4{
+  margin-top: 2rem;
+}
+}
