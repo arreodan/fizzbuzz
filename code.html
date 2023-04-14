@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Name: A coding challenge by Daniel Arreola</title>
-
+    <!-- Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
@@ -24,7 +30,7 @@
 <header>
    <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
        <div class="container" >
-           <a class="navbar-brand" href="#">
+           <a class="navbar-brand" href="/index.html">
             <img src="/img/LogoNoMargin.png" alt="" height="50">
            </a>
            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -33,7 +39,7 @@
                <span class="navbar-toggler-icon"></span>
            </button>
            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                    <li class="nav-item">
                        <a class="nav-link" aria-current="page" href="/index.html">Home</a>
                    </li>
@@ -44,10 +50,10 @@
                        <a class="nav-link active" href="/code.html">Code</a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="#">Repo</a>
+                       <a class="nav-link" href="https://github.com/arreodan/fizzbuzz" target="_blank">Repo</a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="https:danielarreola.netlify.app" target="_blank">Portfolio</a>
+                       <a class="nav-link" href="https://danielarreola.netlify.app" target="_blank">Portfolio</a>
                    </li>
                    <li class="nav-item">
                     <!-- Link blog when I have one -->
@@ -65,32 +71,103 @@
         <div class="col-12 col-lg-8">
             <pre class="line-numbers">
                 <code class="language-js">
-function displayMessage() {
-    let msg = document.getElementById('message').value;
-    // alert(msg);
+function getValues() {
+  let fizzValue = document.getElementById('fizzValue').value;
+  let buzzValue = document.getElementById('buzzValue').value;
+  let stopValue = document.getElementById('stopValue').value;
 
-    Swal.fire(
-        {
-            backdrop: false,
-            title: 'App Name',
-            text: msg
-        }
-    );
+  fizzValue = parseInt(fizzValue);
+  buzzValue = parseInt(buzzValue);
+
+if (Number.isInteger(fizzValue) == false || Number.isInteger(buzzValue) == false){
+    Swal.fire({
+      icon: "error",
+      title: "Oops!",
+      text: "Please enter a valid Fizz and Buzz values",
+      backdrop: false,
+    });
 }
+
+
+
+  stopValue = parseInt(stopValue);
+  let startValue = 1;
+
+  if (Number.isInteger(stopValue) && stopValue &lt; 5001) {
+    let array = generateFizzBuzz(startValue, stopValue);
+    displayFizzBuzz(array, fizzValue, buzzValue);
+  } else {Swal.fire({
+    icon: "error",
+    title: "Oops!",
+    text: "Please enter a valid stop value",
+    backdrop: false,
+  });
+
+  }
+}
+
+function generateFizzBuzz(start, end) {
+  let basketOfNumbers = [];
+
+  for (let number = start; number &lt;= end; number = number + 1) {
+    basketOfNumbers.push(number);
+  }
+
+  return basketOfNumbers;
+}
+
+function displayFizzBuzz(numbers, fizzValue, buzzValue) {
+  let results = "";
+
+  for (let i = 0; i &lt; numbers.length; i = i + 1) {
+    let currentNumber = numbers[i];
+
+    if (currentNumber % fizzValue == 0 && currentNumber % buzzValue == 0) {
+      results += `<tr><td class="fizzBuzz">FizzBuzz</td></tr>`;
+    } else if (currentNumber % fizzValue == 0) {
+      results += `<tr><td class="bg-fizz bolder">Fizz</td></tr>`;
+    } else if (currentNumber % buzzValue == 0) {
+      results += `<tr><td class="bg-buzz bolder">Buzz</td></tr>`;
+    } else {
+      results += `<tr><td class="bolder">${currentNumber}</td></tr>`;
+    }
+  }
+
+  let tableBody = document.getElementById("results");
+  tableBody.innerHTML = results;
+}
+
                 </code>
             </pre>
         </div>
         <div class="col-12 col-lg-4">
-            <p>the code is structed in one function</p>
-            <h5>displayMessage</h5>
-            <p>Prints out the message</p>
+          <p>the code is structed in three functions</p>
+          <h5>
+            <ul>
+              <li>getValues</li>
+              <li>generateNumbers</li>
+              <li>displayNumbers</li>
+            </ul>
+          </h5>
+          <p>
+            getValues uses your inputed start and end number and converts the
+            string into a number using parseInt. It then passes the numbers to
+            the generateNumbers function to create a the range of numbers and
+            convert them into an array using a for loop that adds 1 until the
+            end number is reached. generateNumbers then returns the array back
+            to getValues sends them to the displayNumbers function.
+            displayNumbers then uses the amount of items in the array to pick
+            the current number and uses an if statement to decided if the number
+            is even and give it the CSS class of evenNumber, if else it doesn't
+            reacieve a class
+          </p>
         </div>
     </div>
 </main>
 
-<footer class="py-3">
-<div class="container">
-    <div class="row row-cols-1 row-cols-lg-3 align-items-center">
+<footer>
+<div class="container py-4">
+    <div class="row row-cols-1 row-cols-lg-3 align-items-center g-3">
         <div class="col text-center text-lg-start">
             &copy; 2023 Daniel Arreola
         </div>
@@ -98,12 +175,15 @@ function displayMessage() {
             <img src="/img/LogoWTextnomargin.png" alt="" height="60">
         </div>
         <div class="col text-center text-lg-end">
-            <a href="" target="_blank"><i class="bi bi-linkedin"></i></a>
-            <a href="" target="_blank"><i class="bi bi-github"></i></a>
-            <a href="" target="_blank"><i class="bi bi-person-badge"></i></a>
+            <a href="" target="_blank"><i class="bi bi-linkedin socialicons"></i></a>
+            <a href="" target="_blank"><i class="bi bi-github socialicons"></i></a>
+            <a href="" target="_blank"><i class="bi bi-file-earmark-person socialicons"></i></a>
         </div>
     </div>
 </div>
+
+
+</footer>
 
 
 </footer>

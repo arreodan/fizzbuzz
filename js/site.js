@@ -52,9 +52,9 @@ function displayFizzBuzz(numbers, fizzValue, buzzValue) {
     if (currentNumber % fizzValue == 0 && currentNumber % buzzValue == 0) {
       results += `<tr><td class="fizzBuzz">FizzBuzz</td></tr>`;
     } else if (currentNumber % fizzValue == 0) {
-      results += `<tr><td class="bg-success bolder">Fizz</td></tr>`;
+      results += `<tr><td class="bg-fizz bolder">Fizz</td></tr>`;
     } else if (currentNumber % buzzValue == 0) {
-      results += `<tr><td class="bg-warning bolder">Buzz</td></tr>`;
+      results += `<tr><td class="bg-buzz bolder">Buzz</td></tr>`;
     } else {
       results += `<tr><td class="bolder">${currentNumber}</td></tr>`;
     }
