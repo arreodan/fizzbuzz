@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Name: A coding challenge by Daniel Arreola</title>
+    <title>Fizz Buzz - The Code</title>
     <!-- Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,13 +25,19 @@
 <link rel="stylesheet" href="/css/main.css">
 <!-- Prism CSS -->
 <link rel="stylesheet" href="/css/prism.css">
+<!-- Favicon -->
+<link
+rel="shortcut icon"
+href="/img/LogoNoMargin.png"
+type="image/x-icon"
+/>
 </head>
 <body>
 <header>
    <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
        <div class="container" >
            <a class="navbar-brand" href="/index.html">
-            <img src="/img/LogoNoMargin.png" alt="" height="50">
+            <img src="/img/LogoNoMargin.png" alt="" height="65">
            </a>
            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -53,11 +59,11 @@
                        <a class="nav-link" href="https://github.com/arreodan/fizzbuzz" target="_blank">Repo</a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="https://danielarreola.netlify.app" target="_blank">Portfolio</a>
+                       <a class="nav-link" href="https://danielarreola.dev" target="_blank">Portfolio</a>
                    </li>
                    <li class="nav-item">
                     <!-- Link blog when I have one -->
-                       <a class="nav-link" href="#">Blog</a> 
+                       <a target="_blank" class="nav-link" href="https://blogdanielarreola-production.up.railway.app/">Blog</a> 
                    </li>
                 </ul>
            </div>
@@ -123,15 +129,18 @@ function displayFizzBuzz(numbers, fizzValue, buzzValue) {
     let currentNumber = numbers[i];
 
     if (currentNumber % fizzValue == 0 && currentNumber % buzzValue == 0) {
-      results += `<tr><td class="fizzBuzz">FizzBuzz</td></tr>`;
+      results += `&lt;tr>&lt;td> class="fizzBuzz">FizzBuzz&lt;/td>&lt;/tr>`;
     } else if (currentNumber % fizzValue == 0) {
-      results += `<tr><td class="bg-fizz bolder">Fizz</td></tr>`;
+      results += `&lt;tr>&lt;td> class="bg-fizz bolder">Fizz&lt;/td>&lt;/tr>`;
     } else if (currentNumber % buzzValue == 0) {
-      results += `<tr><td class="bg-buzz bolder">Buzz</td></tr>`;
+      results += `&lt;tr>&lt;td> class="bg-buzz bolder">Buzz&lt;/td>&lt;/tr>`;
     } else {
-      results += `<tr><td class="bolder">${currentNumber}</td></tr>`;
+      results += `&lt;tr>&lt;td> class="bolder">${currentNumber}&lt;/td>&lt;/tr>`;
     }
   }
+
+  
+
 
   let tableBody = document.getElementById("results");
   tableBody.innerHTML = results;
@@ -145,21 +154,18 @@ function displayFizzBuzz(numbers, fizzValue, buzzValue) {
           <h5>
             <ul>
               <li>getValues</li>
-              <li>generateNumbers</li>
-              <li>displayNumbers</li>
+              <li>generateFizzBuzz</li>
+              <li>displayFizzBuzz</li>
             </ul>
           </h5>
           <p>
-            getValues uses your inputed start and end number and converts the
+            <strong>getValues</strong> uses your inputed start and end number and converts the
             string into a number using parseInt. It then passes the numbers to
-            the generateNumbers function to create a the range of numbers and
+            the <strong>generateFizzBuzz</strong> function to create a the range of numbers and
             convert them into an array using a for loop that adds 1 until the
-            end number is reached. generateNumbers then returns the array back
-            to getValues sends them to the displayNumbers function.
-            displayNumbers then uses the amount of items in the array to pick
-            the current number and uses an if statement to decided if the number
-            is even and give it the CSS class of evenNumber, if else it doesn't
-            reacieve a class
+            end number is reached. generateFizzBuzz then returns the array back
+            to getValues sends them to the <strong>displayFizzBuzz</strong> function.
+            displayFizzBuzz then uses the amount of items in the array to loop through current number and uses an if statement to test what will be displayed in the table body.
           </p>
         </div>
     </div>
@@ -172,12 +178,12 @@ function displayFizzBuzz(numbers, fizzValue, buzzValue) {
             &copy; 2023 Daniel Arreola
         </div>
         <div class="col text-center">
-            <img src="/img/LogoWTextnomargin.png" alt="" height="60">
+            <img src="/img/LogoWTextnomargin.png" alt="" height="65">
         </div>
         <div class="col text-center text-lg-end">
             <a href="https://www.linkedin.com/in/arreoda/" target="_blank"><i class="bi bi-linkedin socialicons"></i></a>
             <a href="https://github.com/arreodan" target="_blank"><i class="bi bi-github socialicons"></i></a>
-            <a href="" target="_blank"><i class="bi bi-file-earmark-person socialicons"></i></a>
+            <a href="https://danielarreola.dev" target="_blank"><i class="bi bi-file-earmark-person socialicons"></i></a>
         </div>
     </div>
 </div>
